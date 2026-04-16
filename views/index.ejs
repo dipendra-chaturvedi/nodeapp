@@ -2,12 +2,16 @@
 <a href="/add">Add User</a>
 
 <ul>
-<% users.forEach(user => { %>
-    <li>
-        <%= user.name %> - <%= user.email %>
-        | <a href="/view/<%= user.id %>">View</a>
-        | <a href="/edit/<%= user.id %>">Edit</a>
-        | <a href="/delete/<%= user.id %>">Delete</a>
-    </li>
-<% }) %>
+<% if (users && users.length > 0) { %>
+    <% users.forEach(user => { %>
+        <li>
+            <%= user.name %> - <%= user.email %>
+            | <a href="/view/<%= user.id %>">View</a>
+            | <a href="/edit/<%= user.id %>">Edit</a>
+            | <a href="/delete/<%= user.id %>">Delete</a>
+        </li>
+    <% }) %>
+<% } else { %>
+    <li>No users found</li>
+<% } %>
 </ul>

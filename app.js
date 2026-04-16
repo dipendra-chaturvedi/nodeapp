@@ -8,11 +8,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
 
 // DB connection
-const db = mysql.createConnection({
+const db = mysql.createPool({
     host: '127.0.0.1',
     user: 'u268016451_Mgjj1',
-    password: 'Nitesh@2026#',
-    database: 'u268016451_lbuAy'
+    password: 'your_password',
+    database: 'u268016451_lbuAy',
+    waitForConnections: true,
+    connectionLimit: 10,
+    queueLimit: 0
 });
 
 db.connect(err => {
